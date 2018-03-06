@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <script>
+        var url = 'ws://' + window.location.host + '/myHandler';
+        var sock = new WebSocket(url);
+        sock.onopen = function () {
+            console.log("客户端开启链接了");
+            sayMarco();
+        };
+        sock.onclose = function () {
+            console.log("客户端链接关闭");
+        }
+        sock.onmessage = function (e) {
+            console.log("从服务端接收消息" + e.data);
+            setTimeout(function () {
+                sayMarco();
+            }, 2000);
+        }
+        function sayMarco() {
+            console.log('Send Marco!');
+            sock.send("Marco!")
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <h1>exception</h1>
+    <form method="post" th:action="@{/find}">
+        <label>搜索条件:</label><input type="text" name="key" /></br>
+        <button type="submit">提交</button>
+    </form>
+    <label th:text="${key}"></label>
+</body>
+</html>
